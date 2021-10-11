@@ -4,150 +4,166 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Entity;
 
-
 /**
- * @Enti
- */
+* @Entity
+* @ORM\Table(name="Patient")
+*/
 class Patient
 {
-    /**
-     * @param string $nomP
-     * @param string $prenomP
-     * @param string $genre
-     * @param int|null $age
-     * @param int|null $idP
-     * @param string $GrpSang
-     * @param string $N_SeSoc
+/**
+* @var int
+     * @ORM\Column(name="IdP", type="integer")
+     * @ORM\GeneratedValue()
+     * @ORM\Id()
      */
-
-private ?int $idP;
-private string $nomP;
-private string $prenomP;
-private string $Genre;
-private ?int $age;
-private string $GrpSang;
-private string $N_SecSoc;
+    public ?int $IdP =null;
 
     /**
-     * @param string $nomP
-     * @param string $prenomP
-     * @param string $Genre
-     * @param int|null $age
-     * @param string $GrpSang
-     * @param string $N_SecSoc
+     * @var string
+     * @ORM\Column(name="NomP", type="string")
      */
-    public function __construct(string $nomP, string $prenomP, string $Genre, ?int $age, string $GrpSang, string $N_SecSoc)
+    public String $NomP;
+
+    /**
+     * @var string
+     * @ORM\Column(name="PrenomP", type="string")
+     */
+    public String $PrenomP;
+
+    /**
+     * @var string
+     * @ORM\Column(name="Genre", type="string")
+     */
+    public String $Genre;
+
+    /**
+     * @var int
+     * @ORM\Column(name="Age", type="integer")
+     */
+    public int $Age;
+
+    /**
+     * @var string
+     * @ORM\Column(name="Groupe_Sanguin", type="string")
+     */
+    public String $GroupeSanguin;
+
+    /**
+     * @var int
+     * @ORM\Column(name="N_Securite_Social", type="integer")
+     */
+    public int $NSecuriteSocial;
+/**
+* @param String $NomP
+* @param String $PrenomP
+* @param String $Genre
+* @param int $Age
+* @param String $GroupeSanguin
+* @param int $NSecuriteSocial
+*/
+    public function __construct(string $NomP, string $PrenomP, string $Genre, int $Age, string $GroupeSanguin, int $NSecuriteSocial)
     {
-        $this->nomP = $nomP;
-        $this->prenomP = $prenomP;
+        $this->NomP = $NomP;
+        $this->PrenomP = $PrenomP;
         $this->Genre = $Genre;
-        $this->age = $age;
-        $this->GrpSang = $GrpSang;
-        $this->N_SecSoc = $N_SecSoc;
+        $this->Age = $Age;
+        $this->GroupeSanguin = $GroupeSanguin;
+        $this->NSecuriteSocial = $NSecuriteSocial;
     }
 
-    /**
-     * @return string
-     */
+/**
+* @return string
+*/
     public function getNomP(): string
     {
-        return $this->nomP;
+        return $this->NomP;
     }
 
-    /**
-     * @param string $nomP
-     */
-    public function setNomP(string $nomP): void
+/**
+* @param string $NomP
+*/
+    public function setNomP(string $NomP): void
     {
-        $this->nomP = $nomP;
+        $this->NomP = $NomP;
     }
 
-    /**
-     * @return string
-     */
+/**
+* @return string
+*/
     public function getPrenomP(): string
     {
-        return $this->prenomP;
+        return $this->PrenomP;
     }
 
-    /**
-     * @param string $prenomP
-     */
-    public function setPrenomP(string $prenomP): void
+/**
+* @param string $PrenomP
+*/
+    public function setPrenomP(string $PrenomP): void
     {
-        $this->prenomP = $prenomP;
+        $this->PrenomP = $PrenomP;
     }
 
-    /**
-     * @return string
-     */
+/**
+* @return string
+*/
     public function getGenre(): string
     {
         return $this->Genre;
     }
 
-    /**
-     * @param string $Genre
-     */
+/**
+* @param string $Genre
+*/
     public function setGenre(string $Genre): void
     {
         $this->Genre = $Genre;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getAge(): ?int
+/**
+* @return int
+*/
+    public function getAge(): int
     {
-        return $this->age;
+        return $this->Age;
     }
 
     /**
-     * @param int|null $age
+     * @param int $Age
      */
-    public function setAge(?int $age): void
+    public function setAge(int $Age): void
     {
-        $this->age = $age;
+        $this->Age = $Age;
+    }
+/**
+* @return string
+*/
+    public function getGroupeSanguin(): string
+    {
+        return $this->GroupeSanguin;
     }
 
-    /**
-     * @return string
-     */
-    public function getGrpSang(): string
+/**
+* @param string $GroupeSanguin
+*/
+    public function setGroupeSanguin(string $GroupeSanguin): void
     {
-        return $this->GrpSang;
+        $this->GroupeSanguin = $GroupeSanguin;
     }
 
-    /**
-     * @param string $GrpSang
-     */
-    public function setGrpSang(string $GrpSang): void
+/**
+* @return int
+*/
+    public function getNSecuriteSocial(): int
     {
-        $this->GrpSang = $GrpSang;
+        return $this->NSecuriteSocial;
     }
 
-    /**
-     * @return string
-     */
-    public function getNSecSoc(): string
+/**
+* @param int $NSecuriteSocial
+*/
+    public function setNSecuriteSocial(int $NSecuriteSocial): void
     {
-        return $this->N_SecSoc;
-    }
-
-    /**
-     * @param string $N_SecSoc
-     */
-    public function setNSecSoc(string $N_SecSoc): void
-    {
-        $this->N_SecSoc = $N_SecSoc;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getIdP(): ?int
-    {
-        return $this->idP;
+        $this->NSecuriteSocial = $NSecuriteSocial;
     }
 
 
